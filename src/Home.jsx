@@ -1,10 +1,16 @@
-import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from './Navbar';
+import Statistics from './Statistics';
+import Footer from './Footer';
 
 const Home = () => {
     return (
-        <div className='text-3xl font-bold text-blue-400'>
-            Hello world!
-        </div>
+      <div>
+        <Navbar></Navbar>
+        <Outlet></Outlet>
+        <Footer></Footer>
+      </div>
+
     );
 };
 
