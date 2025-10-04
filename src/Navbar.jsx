@@ -50,7 +50,8 @@ const Navbar = () => {
 
         </>
     return (
-        <div className=" max-w-[1250px]  mx-auto mt-5 relative z-10 rounded-lg bg-[#9538E2] text-white shadow-sm">
+        <div className='p-4 lg:p-8'>
+             <div className=" lg:max-w-7xl mx-auto relative z-10 rounded-lg bg-[#9538E2] text-white shadow-sm">
             <div className='navbar'>
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -82,7 +83,7 @@ const Navbar = () => {
                 </div>
 
             </div>
-            <div className='mx-auto max-w-4xl text-center mt-10'>
+            <div className='mx-auto max-w-[420px] lg:max-w-4xl text-center mt-10'>
                 <h2 className="text-3xl lg:text-5xl mb-10 font-bold">Upgrade Your Tech Accessorize with Gadget Heaven Accessories</h2>
 
                 <div className='max-w-[420px] lg:max-w-2xl  mx-auto text-center'>
@@ -92,12 +93,14 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div className='max-w-[380px] -mt-[200px] ml-16 lg:max-w-[780px]   rounded-xl border-[15px] border-black/10 absolute z-5 lg:-mt-[260px] lg:ml-[280px]'>
+            <div className='max-w-[350px] -mt-[200px] ml-14 lg:max-w-[780px]   rounded-xl border-[15px] border-black/10 absolute z-5 lg:-mt-[260px] lg:ml-[280px]'>
                 <img className=' rounded-md h-[300px]  lg:h-[420px]' src={bannerImg} alt="" />
             </div>
 
 
         </div>
+        </div>
+       
     );
 };
 

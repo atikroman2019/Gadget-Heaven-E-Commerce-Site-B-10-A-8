@@ -8,6 +8,7 @@ import {
 import Home from './Home';
 import ErrorPage from './ErrorPage';
 import Statistics from './Statistics';
+import Dashboard from './Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -18,13 +19,18 @@ const router = createBrowserRouter([
       {
         path: 'statistics',
         element: <Statistics></Statistics>
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>
       }
     ]
+
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </StrictMode>,
 )

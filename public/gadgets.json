@@ -1,0 +1,241 @@
+[
+  {
+    "product_id": 1,
+    "product_title": "Apple iPhone 15 Pro",
+    "product_image": "https://i.ibb.co.com/BK7s8bqz/Apple-15-pro.jpg",
+    "category": "Smartphone",
+    "price": 1199,
+    "description": "The latest iPhone with A17 Pro chip, titanium frame, and advanced camera system.",
+    "Specification": [
+      "6.1-inch Super Retina XDR Display",
+      "A17 Pro Bionic Chip",
+      "48MP Main Camera",
+      "USB-C Charging",
+      "iOS 17"
+    ],
+    "availability": true,
+    "rating": 4.8,
+    "brand": "Apple"
+  },
+  {
+    "product_id": 2,
+    "product_title": "Samsung Galaxy S23 Ultra",
+    "product_image": "https://i.ibb.co.com/wjRyYKW/galaxy-s23ultra.jpg",
+    "category": "Smartphone",
+    "price": 1099,
+    "description": "Samsung flagship with S-Pen support and 200MP camera.",
+    "Specification": [
+      "6.8-inch QHD+ AMOLED Display",
+      "Snapdragon 8 Gen 2",
+      "200MP Main Camera",
+      "S-Pen Included",
+      "Android 13"
+    ],
+    "availability": true,
+    "rating": 4.7,
+    "brand": "Samsung"
+  },
+  {
+    "product_id": 3,
+    "product_title": "xiaomi 15 ultra",
+    "product_image": "https://i.ibb.co.com/HTX8wjLg/xiaomi-15-ultra.png",
+    "category": "Smartphone",
+    "price": 999,
+    "description": "Samsung flagship with S-Pen support and 200MP camera.",
+    "Specification": [
+      "6.8-inch QHD+ AMOLED Display",
+      "Snapdragon 8 Gen 2",
+      "200MP Main Camera",
+      "S-Pen Included",
+      "Android 13"
+    ],
+    "availability": true,
+    "rating": 4.9,
+    "brand": "Xioami"
+    
+  },
+  {
+    "product_id": 4,
+    "product_title": "Apple MacBook Air M2",
+    "product_image": "https://i.ibb.co.com/mVym7qW2/Apple-Mac-Book-Air.jpg",
+    "category": "Laptop",
+    "price": 1299,
+    "description": "Ultra-portable MacBook Air with Apple M2 chip for productivity and creativity.",
+    "Specification": [
+      "13.6-inch Liquid Retina Display",
+      "Apple M2 Chip",
+      "8GB RAM, 256GB SSD",
+      "MagSafe Charging",
+      "macOS Ventura"
+    ],
+    "availability": true,
+    "rating": 4.6,
+    "brand": "Apple"
+  },
+  {
+    "product_id": 5,
+    "product_title": "Dell XPS 15 Laptop",
+    "product_image": "https://i.ibb.co.com/1G8kyxVD/Dell-XPS-15-9520-Laptop.jpg",
+    "category": "Laptop",
+    "price": 1499,
+    "description": "High-performance laptop with stunning display and premium build quality.",
+    "Specification": [
+      "15.6-inch OLED Display",
+      "Intel Core i7 13th Gen",
+      "16GB RAM, 512GB SSD",
+      "NVIDIA RTX 4050",
+      "Windows 11 Pro"
+    ],
+    "availability": true,
+    "rating": 4.5,
+    "brand": "Dell"
+  },
+  {
+    "product_id": 6,
+    "product_title": "Microsoft 13.8 Surface Laptop",
+    "product_image": "https://i.ibb.co.com/s9jkyP0J/Microsoft-Surface.png",
+    "category": "Laptop",
+    "price": 1099,
+    "description": "The ultimate iPad with M2 chip, Liquid Retina XDR display, and Apple Pencil support.",
+    "Specification": [
+      "12.9-inch Liquid Retina XDR Display",
+      "Apple M2 Chip",
+      "Apple Pencil 2 Support",
+      "5G Connectivity",
+      "iPadOS 16"
+    ],
+    "availability": true,
+    "rating": 4.8,
+    "brand": "Microsoft"
+  },
+  {
+    "product_id": 7,
+    "product_title": "Apple-iPhone-16-Pro",
+    "product_image": "https://i.ibb.co.com/B574yMzH/Apple-i-Phone-16-Pro-Max-featured-image-packshot-review.png",
+    "category": "Smartphone",
+    "price": 1799,
+    "description": "Lightweight e-reader with adjustable warm light and waterproof design.",
+    "Specification": [
+      "6.8-inch E-Ink Display",
+      "Adjustable Warm Light",
+      "8GB Storage",
+      "Waterproof IPX8",
+      "Weeks of Battery Life"
+    ],
+    "availability": true,
+    "rating": 4.6,
+    "brand": "Apple"
+  },
+  {
+    "product_id": 8,
+    "product_title": "Apple Watch Series 8",
+    "product_image": "https://i.ibb.co.com/k2T5B1Zw/Apple-Watch-Series-8.webp",
+    "category": "Smartwatch",
+    "price": 499,
+    "description": "Advanced action camera for 5.3K video and hyper-smooth stabilization.",
+    "Specification": [
+      "5.3K Video Recording",
+      "HyperSmooth 5.0",
+      "Waterproof 33ft",
+      "Enduro Battery",
+      "Front & Rear Screens"
+    ],
+    "availability": true,
+    "rating": 4.8,
+    "brand": "Apple"
+  },
+  {
+    "product_id": 9,
+    "product_title": "DJI Mini 3 Pro",
+    "product_image": "https://i.ibb.co.com/XZw0vS67/DJI-Mini-3-Pro.jpg",
+    "category": "Drone",
+    "price": 799,
+    "description": "Compact and powerful drone with 4K HDR video and obstacle sensing.",
+    "Specification": [
+      "4K HDR Camera",
+      "34-Minute Flight Time",
+      "Tri-Directional Obstacle Sensing",
+      "Under 249g",
+      "GPS Stabilization"
+    ],
+    "availability": true,
+    "rating": 4.7,
+    "brand": "DJI"
+  },
+  {
+    "product_id": 10,
+    "product_title": "Apple Watch Series 9",
+    "product_image": "https://i.ibb.co.com/WvhBGXxG/Apple-Watch-Series-9.jpg",
+    "category": "Smartwatch",
+    "price": 399,
+    "description": "Smartwatch with health tracking, crash detection, and always-on display.",
+    "Specification": [
+      "Always-On Retina Display",
+      "Heart Rate & ECG",
+      "Crash Detection",
+      "watchOS 10",
+      "Swimproof"
+    ],
+    "availability": true,
+    "rating": 4.5,
+    "brand": "Apple"
+  },
+  {
+    "product_id": 11,
+    "product_title": "Samsung Galaxy S25 Ultra",
+    "product_image": "https://i.ibb.co.com/3yBzrdyH/163x346-Titanium-Silverblue-P3.jpg",
+    "category": "Smartphone",
+    "price": 1299,
+    "description": "Wireless virtual reality headset with immersive gaming experience.",
+    "Specification": [
+      "Fast-Switch LCD Display",
+      "128GB Storage",
+      "Wireless All-in-One",
+      "Hand Tracking",
+      "VR Game Library"
+    ],
+    "availability": true,
+    "rating": 4.6,
+    "brand": "Samsung"
+  },
+  {
+    "product_id": 12,
+    "product_title": "Honor Magic V3",
+    "product_image": "https://i.ibb.co.com/FkM5Q8XW/Honor-Magic-V3.jpg",
+    "category": "Smartphone",
+    "price": 1050,
+    "description": "Premium wireless mouse with advanced ergonomics and ultra-fast scrolling.",
+    "Specification": [
+      "MagSpeed Electromagnetic Scrolling",
+      "Ergonomic Shape",
+      "8K DPI Sensor",
+      "USB-C Quick Charging",
+      "Bluetooth + Unifying Receiver"
+    ],
+    "availability": true,
+    "rating": 4.8,
+    "brand": "Honor"
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
