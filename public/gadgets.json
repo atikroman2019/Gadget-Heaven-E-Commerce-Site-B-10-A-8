@@ -37,7 +37,7 @@
   },
   {
     "product_id": 3,
-    "product_title": "xiaomi 15 ultra",
+    "product_title": "Xiaomi 15 ultra",
     "product_image": "https://i.ibb.co.com/HTX8wjLg/xiaomi-15-ultra.png",
     "category": "Smartphone",
     "price": 999,
@@ -216,6 +216,8 @@
     "rating": 4.8,
     "brand": "Honor"
   }
+
+
 ]
 
 

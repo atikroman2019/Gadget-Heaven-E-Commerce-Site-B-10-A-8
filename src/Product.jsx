@@ -1,24 +1,25 @@
+import { Link } from "react-router-dom";
 
+const Product = ({ product }) => {
+  const { product_id, product_image, product_title, price } = product;
 
-const Product = ({product}) => {
-    const {product_title,product_image, price} = product
-    return (
-        <div className="card bg-base-100 w-[300px] h-[350px] mx-auto shadow-sm">
-  <figure className="w-[280px] mx-auto  p-4">
-    <img className="w-[250px] bg-none h-[150px]"
-      src={product_image}
-      alt="Shoes"
-     />
-  </figure>
-  <div className="card-body items-center text-center">
-    <h2 className="card-title">{product_title}</h2>
-    <p>Price: {price}$</p>
-    <div className="card-actions">
-      <button className="btn btn-primary">View Details</button>
+  return (
+    <div className="bg-white p-4 rounded-2xl shadow-md text-center">
+      <img
+        src={product_image}
+        alt={product_title}
+        className=" h-48 mx-auto rounded-xl mb-4"
+      />
+      <h3 className="text-lg font-bold">{product_title}</h3>
+      <p className="text-purple-600 font-semibold mb-4">${price}</p>
+
+      <Link to={`/product/${product_id}`}>
+        <button className="btn bg-[#9538E2] text-white px-4 py-2 rounded-lg">
+          View Details
+        </button>
+      </Link>
     </div>
-  </div>
-</div>
-    );
+  );
 };
 
 export default Product;
