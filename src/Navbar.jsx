@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useNavigate, useLocation } from 'react-router-dom';  // ✅ added useNavigate
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import bannerImg from './assets/banner.jpg';
 import { IoCartOutline } from "react-icons/io5";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
@@ -18,8 +18,8 @@ const Navbar = () => {
                     to="/"
                     className={({ isActive }) =>
                         isActive
-                            ? "text-black font-bold underline"
-                            : "hover:text-black"
+                            ? "bg-[#9538E2] font-bold "
+                            : "hover:text-[#9538E2]"
                     }
                 >
                     Home
@@ -30,8 +30,8 @@ const Navbar = () => {
                     to="/statistics"
                     className={({ isActive }) =>
                         isActive
-                            ? "text-black font-bold underline"
-                            : "hover:text-black"
+                            ? "bg-[#9538E2] text-white font-bold"
+                            : "hover:text-[#9538E2]"
                     }
                 >
                     Statistics
@@ -42,8 +42,7 @@ const Navbar = () => {
                     to="/dashboard"
                     className={({ isActive }) =>
                         isActive
-                            ? "text-black font-bold underline"
-                            : "hover:text-black"
+                            ?  "bg-[#9538E2] text-white font-bold" : "hover:text-[#9538E2]"
                     }
                 >
                     Dashboard
@@ -53,8 +52,7 @@ const Navbar = () => {
                 <NavLink
                     to="/about"
                     className={({ isActive }) =>
-                        isActive ? "text-black font-bold underline"
-                            : "hover:text-black"
+                        isActive ?"bg-[#9538E2] text-white font-bold" : "hover:text-[#9538E2]"
                     }
                 >
                     About

@@ -1,150 +1,178 @@
 import React, { useEffect, useState } from "react";
-import { IoTrashOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState("cart");
+  const navigate = useNavigate();
+
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
+  const [activeTab, setActiveTab] = useState("cart");
+  const [total, setTotal] = useState(0);
+  const [showModal, setShowModal] = useState(false);
 
-  // ✅ Load cart & wishlist data from localStorage
+
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-    setCart(storedCart);
-    setWishlist(storedWishlist);
+    document.title = "Dashboard | Gadget Heaven";
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const savedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    setCart(savedCart);
+    setWishlist(savedWishlist);
+    updateTotal(savedCart);
   }, []);
 
-  // ✅ Calculate total price
-  const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+  const updateTotal = (cartItems) => {
+    const sum = cartItems.reduce((acc, item) => acc + item.price, 0);
+    setTotal(sum);
+  };
+  const handleSort = () => {
+    const sorted = [...cart].sort((a, b) => b.price - a.price);
+    setCart(sorted);
+  };
+  const handlePurchase = () => {
+    if (cart.length === 0) return;
 
-  // ✅ Sort cart by price (descending)
-  const handleSortByPrice = () => {
-    const sortedCart = [...cart].sort((a, b) => b.price - a.price);
-    setCart(sortedCart);
+    setShowModal(true);
+    setCart([]);
+    setTotal(0);
+    localStorage.setItem("cart", JSON.stringify([]));
   };
 
-  // ✅ Remove from cart
-  const handleRemoveFromCart = (id) => {
-    const updated = cart.filter((item) => item.product_id !== id);
-    setCart(updated);
-    localStorage.setItem("cart", JSON.stringify(updated));
-  };
-
-  // ✅ Remove from wishlist
-  const handleRemoveFromWishlist = (id) => {
+  const handleDeleteFromWishlist = (id) => {
     const updated = wishlist.filter((item) => item.product_id !== id);
     setWishlist(updated);
     localStorage.setItem("wishlist", JSON.stringify(updated));
+    toast.info("❌ Removed from wishlist", { autoClose: 1500 });
   };
 
-  // ✅ UI for each item card
-  const renderCard = (item, isCart = false) => (
-    <div
-      key={item.product_id}
-      className="bg-white rounded-xl shadow-md p-4 flex flex-col sm:flex-row items-center justify-between gap-4"
-    >
-      <div className="flex items-center gap-4">
-        <img
-          src={item.product_image}
-          alt={item.product_title}
-          className="w-24 h-24 object-contain bg-gray-100 rounded-lg"
-        />
-        <div>
-          <h3 className="font-bold text-lg">{item.product_title}</h3>
-          <p className="text-gray-600 text-sm mb-1">
-            {item.description.slice(0, 60)}...
-          </p>
-          <p className="font-semibold text-[#9538E2]">Price: ${item.price}</p>
-        </div>
-      </div>
-
-      <button
-        onClick={() =>
-          isCart
-            ? handleRemoveFromCart(item.product_id)
-            : handleRemoveFromWishlist(item.product_id)
-        }
-        className="text-red-600 hover:text-red-800 transition"
-      >
-        <IoTrashOutline size={22} />
-      </button>
-    </div>
-  );
-
   return (
-    <div className="bg-[#D7D7D7] min-h-screen py-10 px-4">
-      {/* Header */}
-      <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold mb-3">Dashboard</h2>
-        <p className="text-gray-700">
-          Manage your <span className="font-semibold">Cart</span> and{" "}
-          <span className="font-semibold">Wish List</span> easily.
-        </p>
-      </div>
-
-      {/* Tabs */}
-      <div className="flex justify-center gap-4 mb-8">
+    <div className="bg-[#D7D7D7] min-h-screen py-10 px-6">
+      <h2 className="text-3xl font-bold text-center text-[#9538E2] mb-8">
+        Dashboard
+      </h2>
+      <div className="flex justify-center gap-6 mb-8">
         <button
           onClick={() => setActiveTab("cart")}
-          className={`px-6 py-2 rounded-lg font-semibold ${
-            activeTab === "cart"
-              ? "bg-[#9538E2] text-white"
-              : "bg-white text-[#9538E2] border border-[#9538E2]"
-          }`}
+          className={`px-5 py-2 rounded-lg font-semibold ${activeTab === "cart" ? "bg-[#9538E2] text-white" : "bg-white"
+            }`}
         >
-          Cart ({cart.length})
+          Cart
         </button>
-
         <button
           onClick={() => setActiveTab("wishlist")}
-          className={`px-6 py-2 rounded-lg font-semibold ${
-            activeTab === "wishlist"
-              ? "bg-[#9538E2] text-white"
-              : "bg-white text-[#9538E2] border border-[#9538E2]"
-          }`}
+          className={`px-5 py-2 rounded-lg font-semibold ${activeTab === "wishlist" ? "bg-[#9538E2] text-white" : "bg-white"
+            }`}
         >
-          Wishlist ({wishlist.length})
+          Wish List
         </button>
       </div>
-
-      {/* ===== CART TAB ===== */}
-      {activeTab === "cart" && (
-        <div className="max-w-5xl mx-auto space-y-4">
-          {cart.length > 0 ? (
-            <>
-              <div className="flex justify-between items-center mb-4">
-                <p className="font-semibold text-lg">
-                  Total Price:{" "}
-                  <span className="text-[#9538E2] font-bold">${totalPrice}</span>
+      <div className="max-w-6xl mx-auto bg-white shadow-md rounded-2xl p-6">
+        {activeTab === "cart" ? (
+          <>
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-lg font-semibold">
+                Total Price: <span className="text-[#9538E2]">${total}</span>
+              </h3>
+              <button
+                onClick={handleSort}
+                className="bg-[#9538E2] text-white px-4 py-2 rounded-lg hover:bg-[#7e27c3]"
+              >
+                Sort by Price
+              </button>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {cart.length > 0 ? (
+                cart.map((item) => (
+                  <div
+                    key={item.product_id}
+                    className="p-4 border rounded-xl shadow-sm bg-gray-50"
+                  >
+                    <img
+                      src={item.product_image}
+                      alt={item.product_title}
+                      className="rounded-lg h-40 w-full object-contain mb-3"
+                    />
+                    <h4 className="font-semibold">{item.product_title}</h4>
+                    <p className="text-sm text-gray-600">${item.price}</p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-center text-gray-500 col-span-3">
+                  No items in cart.
                 </p>
-                <button
-                  onClick={handleSortByPrice}
-                  className="bg-[#9538E2] text-white px-4 py-2 rounded-lg text-sm hover:bg-[#7e27c3]"
-                >
-                  Sort by Price ↓
-                </button>
-              </div>
+              )}
+            </div>
+            <div className="text-center mt-10">
+              <button
+                onClick={handlePurchase}
+                disabled={cart.length === 0}
+                className={`px-8 py-3 rounded-lg font-semibold ${cart.length === 0
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-[#9538E2] text-white hover:bg-[#7e27c3]"
+                  }`}
+              >
+                Purchase
+              </button>
 
-              {cart.map((item) => renderCard(item, true))}
-            </>
-          ) : (
-            <p className="text-center text-gray-600">No items in cart.</p>
-          )}
-        </div>
-      )}
-
-      {/* ===== WISHLIST TAB ===== */}
-      {activeTab === "wishlist" && (
-        <div className="max-w-5xl mx-auto space-y-4">
-          {wishlist.length > 0 ? (
-            wishlist.map((item) => renderCard(item, false))
-          ) : (
-            <p className="text-center text-gray-600">
-              No items in wishlist yet.
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {wishlist.length > 0 ? (
+                wishlist.map((item) => (
+                  <div
+                    key={item.product_id}
+                    className="p-4 border rounded-xl shadow-sm bg-gray-50 flex flex-col justify-between"
+                  >
+                    <img
+                      src={item.product_image}
+                      alt={item.product_title}
+                      className="rounded-lg h-40 w-full object-contain mb-3"
+                    />
+                    <div>
+                      <h4 className="font-semibold">{item.product_title}</h4>
+                      <p className="text-sm text-gray-600">${item.price}</p>
+                    </div>
+                    <button
+                      onClick={() => handleDeleteFromWishlist(item.product_id)}
+                      className="mt-3 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                ))
+              ) : (
+                <p className="text-center text-gray-500 col-span-3">
+                  No items in wishlist.
+                </p>
+              )}
+            </div>
+          </>
+        )}
+      </div>
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-8 rounded-2xl shadow-lg text-center w-[90%] sm:w-[400px]">
+            <h2 className="text-2xl font-bold text-[#9538E2] mb-3">
+              🎉 Congratulations!
+            </h2>
+            <p className="text-gray-700 mb-6">
+              Your purchase was successful.Thank you for shopping with us!
             </p>
-          )}
+            <button
+              onClick={() => {
+                setShowModal(false);
+                navigate("/");
+              }}
+              className="bg-[#9538E2] text-white px-6 py-2 rounded-lg hover:bg-[#7e27c3]"
+            >
+              Close
+            </button>
+          </div>
         </div>
       )}
+
     </div>
   );
 };
