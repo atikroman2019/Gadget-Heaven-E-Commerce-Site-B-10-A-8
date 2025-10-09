@@ -6,7 +6,7 @@ This React-based web application allows users to explore modern gadgets, view de
 ---
 
 ## 🌐 Live Website  
-🔗 [Gadget Heaven Live](http://wakeful-boundary.surge.sh/)
+🔗 [Gadget Heaven Live](https://dapper-rugelach-624bd9.netlify.app/)
 
 ---
 
